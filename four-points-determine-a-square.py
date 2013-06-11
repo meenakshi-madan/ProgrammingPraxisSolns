@@ -29,13 +29,12 @@ from math import sqrt
 
 def get_coords():
   #user_input = raw_input("Enter a list of points. For example (0,0) (0,1) (1,1) (1,0)\n")
-	print "Enter a list of points. For example (0,0) (0,1) (1,1) (1,0)\n"
-	uin = sys.stdin.readline().strip() 
+	print "Enter a list of points. For example (0,0), (0,1), (1,1), (1,0)"
+	points = raw_input()
 	try:
-		#coords = map(int, uin.split(' '))
-		coords = [tuple(map(int, point.replace('(', '').replace(')', '').split(','))) for point in uin.split(' ')]
-		return coords
-	except ValueError:
+		#return literal_eval('(' + strs.replace(' ',',') +')')
+		return ast.literal_eval(points)
+	except SyntaxError:
 		print "Please enter the coordinates in the format mentioned"
 		exit()
 		
